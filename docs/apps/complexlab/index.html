@@ -5,23 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Complexlab（開発中／個人制作／非製品）</title>
   <style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans JP',sans-serif;line-height:1.7;margin:0;padding:24px;max-width:980px}
-  header{margin-bottom:24px}
-  .badges span{display:inline-block;border:1px solid #888;border-radius:999px;padding:4px 10px;margin-right:8px;font-size:12px}
-  section{margin:28px 0} h1{margin-top:0}
-  code,pre{background:#f6f8fa;padding:12px;border-radius:8px;display:block;overflow:auto}
-  figure{margin:0 0 16px 0}
-  figure img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-  figure figcaption{font-size:12px;color:#555;margin-top:6px}
-  .grid{display:grid;grid-template-columns:1fr;gap:16px}
-  @media (min-width:820px){.grid{grid-template-columns:1fr 1fr}}
-</style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans JP',sans-serif;line-height:1.7;margin:0;padding:24px;max-width:980px}
+    header{margin-bottom:24px}
+    .badges span{display:inline-block;border:1px solid #888;border-radius:999px;padding:4px 10px;margin-right:8px;font-size:12px}
+    section{margin:28px 0} h1{margin-top:0}
+    code,pre{background:#f6f8fa;padding:12px;border-radius:8px;display:block;overflow:auto}
+    figure{margin:0 0 16px 0}
+    figure img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+    figure figcaption{font-size:12px;color:#555;margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:820px){.grid{grid-template-columns:1fr 1fr}}
+    ul.check > li{list-style: '✔︎ '; padding-left: 6px}
+    .note{background:#fff8e1;border:1px solid #f0e3b0;border-radius:8px;padding:12px}
+  </style>
 </head>
 <body>
 <header>
   <h1>Complexlab</h1>
   <div class="badges"><span>開発中</span><span>個人制作</span><span>非製品</span><span>ローカル実行</span></div>
-  <p>“見えない分子・界面を、誰もが見て触れられる形へ”。分子・錯体・ポリマー断片の 3D ビューアで、距離・角度・配位の可視化、注釈画像・CSV 出力に対応します。</p>
+  <p>“見えない分子・界面を、誰もが見て触れられる形へ”。Complexlab は、<strong>分子の可視化</strong>に加えて、<strong>量子化学計算を UI から直感的に実行</strong>し、結果をすぐに確認できる軽量ツールです（開発中）。</p>
 </header>
 
 <section id="notice">
@@ -29,30 +31,70 @@
   <ul>
     <li>本ページで紹介する「Complexlab」は<strong>開発中の個人プロジェクト</strong>であり、<strong>製品版ではありません</strong>。</li>
     <li>機能・仕様は予告なく変更／停止される場合があります。研究・教育目的での試用を想定し、いかなる保証も提供しません。</li>
-    <li>利用は<strong>自己責任</strong>でお願いします。</li>
+    <li>ご利用は<strong>自己責任</strong>でお願いします。</li>
   </ul>
-  <p><strong>ORCA 等の外部ソフトの利用に関する注意：</strong>本サイトの説明で触れる ORCA は、**個人の趣味・学習の範囲**を前提に記載しています。商用・業務利用については各ソフトウェアのライセンス条件をご確認のうえ、必要に応じて**別途のライセンス契約**をご手配ください。</p>
+  <p class="note"><strong>外部ソフトのライセンスについて（ORCA など）</strong><br>
+    本アプリは ORCA 等の量子化学プログラムを<strong>同梱しません</strong>。UI からローカルの外部プログラムを起動する設計です。説明は<strong>個人の趣味・学習の範囲</strong>を前提に記載しています。<strong>商用・業務利用は各ソフトのライセンス条件を必ず確認</strong>し、必要に応じて<strong>別途契約</strong>をご手配ください。</p>
 </section>
 
 <section id="hero">
   <figure>
-    <img src="complexlab_notebook.jpg" alt="Complexlab notebook UI">
-    <figcaption>例：金属–カルボキシレート周りの距離ラベル表示（開発中 UI）</figcaption>
+    <img src="complexlab_notebook.jpg" alt="Complexlab UI">
+    <figcaption>例：距離ラベル表示と注釈（開発中 UI）。計算結果の取り込み・可視化も行えます。</figcaption>
   </figure>
 </section>
 
 <section id="summary">
-  <h2>概要</h2>
-  <ul>
+  <h2>できること（概要）</h2>
+  <ul class="check">
     <li><strong>表示</strong>：XYZ/MOL/SDF の読み込み、回転・ズーム、スタイル切替</li>
-    <li><strong>測定</strong>：原子間距離・角度・二面角のワンクリック計測、ラベル付与</li>
-    <li><strong>配位の理解</strong>：金属中心の近接原子ハイライト、配位表示（試作）</li>
+    <li><strong>測定</strong>：距離・角度・二面角のワンクリック計測、ラベル付与</li>
     <li><strong>出力</strong>：注釈画像（PNG/JPG）、測定値 CSV</li>
+    <li><strong>量子化学計算（UIから）</strong>：外部プログラム（例：ORCA）を UI から実行（開発中）。最適化（OPT）／周波数（FREQ）／単点（SP）の実行と、結果の取り込み・表示。</li>
+  </ul>
+</section>
+
+<section id="qc">
+  <h2>量子化学計算（UI実行）のイメージ</h2>
+  <ol>
+    <li><strong>入力作成</strong>：読み込んだ構造に対し、理論レベル・基底関数・分散補正などのテンプレを UI で選択（例：DFT B3LYP/def2-SVP, D3(BJ)）。</li>
+    <li><strong>ジョブ投入</strong>：ボタン一つでプロジェクト内の <code>jobs/</code> に入力ファイルを生成し、外部プログラムを起動。</li>
+    <li><strong>進捗表示</strong>：ログの末尾を追跡して簡易ステータスを表示（実装中）。</li>
+    <li><strong>結果取り込み</strong>：エネルギー、最適化座標、HOMO-LUMO 近似、Mulliken/CM5 電荷、双極子、IR 予測（FREQ）などを読み込み、表と図に整形。</li>
+    <li><strong>可視化</strong>：最終構造の注釈画像、IR 予測ピークのスペクトル出力。必要に応じて Analysiscopilot に渡して実測とオーバーレイ。</li>
+  </ol>
+  <p>※ 上記は開発中の設計方針を含みます。実装済み範囲はバージョンにより異なります。</p>
+</section>
+
+<section id="quickstart">
+  <h2>3分クイックスタート（最適化 + 周波数）</h2>
+  <ol>
+    <li><strong>設定</strong>：<em>設定 → 計算</em> で外部実行パスを指定（例：<code>/usr/local/bin/orca</code>）。未設定時は計算機能は無効のまま。</li>
+    <li><strong>構造</strong>：H<sub>2</sub>O や CH<sub>4</sub> の XYZ を読み込み。</li>
+    <li><strong>ジョブ</strong>：<em>DFT: B3LYP/def2-SVP</em>、<em>OPT + FREQ</em> を選択 → <strong>Run</strong>。</li>
+    <li><strong>結果</strong>：最終エネルギーと IR 予測を確認 → 画像/CSV を出力。</li>
+  </ol>
+  <p class="note">安全のため、未設定時は計算ボタンを非活性化し、実行先はプロジェクト配下の <code>jobs/</code> に限定します（外部送信なし）。</p>
+</section>
+
+<section id="io">
+  <h2>対応形式・動作環境</h2>
+  <ul>
+    <li><strong>入出力</strong>：XYZ／MOL／SDF、PNG/JPG、CSV（測定値・計算結果要約）</li>
+    <li><strong>OS</strong>：Windows / macOS（ローカル実行、PySide6 ベース）</li>
+  </ul>
+</section>
+
+<section id="privacy">
+  <h2>セキュリティ／プライバシー</h2>
+  <ul>
+    <li>研究データは<strong>端末内で処理</strong>。ネットワーク接続なしでも動作可能。</li>
+    <li>計算はローカルの外部プログラムを起動。<strong>クラウド送信は行いません</strong>。</li>
   </ul>
 </section>
 
 <section id="usage">
-  <h2>使い方（3分）</h2>
+  <h2>使い方（可視化の基本）</h2>
   <ol>
     <li>アプリを起動し、XYZ/MOL/SDF を読み込み</li>
     <li>距離ラベルや配位表示で相互作用を確認</li>
