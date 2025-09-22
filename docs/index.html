@@ -5,18 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>QIDT Apps（開発中／個人制作／非製品）</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans JP',sans-serif;line-height:1.7;margin:0;padding:24px;max-width:880px}
-    h1{margin-top:0} .badges span{display:inline-block;border:1px solid #888;border-radius:999px;padding:4px 10px;margin-right:8px;font-size:12px}
-    ul{line-height:1.9}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans JP',sans-serif;line-height:1.7;margin:0;padding:24px;max-width:920px}
+    h1{margin-top:0}
+    .badges span{display:inline-block;border:1px solid #888;border-radius:999px;padding:4px 10px;margin-right:8px;font-size:12px}
+    section{margin:28px 0}
+    .cards{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px}
+    @media (min-width:820px){.cards{grid-template-columns:1fr 1fr}}
+    details{background:#fafafa;border-radius:10px;padding:12px;border:1px solid #eee}
+    details>summary{cursor:pointer;font-weight:600}
+    footer{margin-top:48px;font-size:13px;color:#666}
   </style>
 </head>
 <body>
   <h1>QIDT Apps</h1>
   <div class="badges"><span>開発中</span><span>個人制作</span><span>非製品</span></div>
-  <p>本ページは開発中ツールの紹介です。ORCA 等の外部ソフトは<strong>個人の趣味・学習の範囲</strong>を前提に記載しており、商用・業務利用は各ライセンス要確認（場合により別途契約が必要）です。</p>
-  <ul>
-    <li><a href="apps/complexlab/">Complexlab</a> — 分子/錯体の3D可視化、距離/配位の確認、注釈画像/CSV出力</li>
-    <li><a href="apps/analysiscopilot/">Analysiscopilot</a> — IR/NMR/XAFS/DSCの図・表・一次解釈・レポート草案自動生成</li>
-  </ul>
+  <p>本ページは個人が開発中のツール紹介です。ORCA 等の外部ソフトは<strong>個人の趣味・学習の範囲</strong>を前提に記載しており、商用・業務利用は各ライセンスの確認と、必要に応じて<strong>別途契約</strong>が必要です。</p>
+
+  <section id="apps">
+    <h2>アプリ</h2>
+    <div class="cards">
+      <div class="card">
+        <h3><a href="apps/complexlab/">Complexlab</a></h3>
+        <p>分子／錯体の3D可視化。距離・角度・配位を直感的に把握し、注釈画像や測定CSVを出力します。</p>
+      </div>
+      <div class="card">
+        <h3><a href="apps/analysiscopilot/">Analysiscopilot</a></h3>
+        <p>IR/NMR/XAFS/DSCなどの実測データをドラッグ&ドロップで整形。図・表・一次解釈・レポート草案を一括生成します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy">
+    <h2>理念 / Philosophy</h2>
+    <p><strong>見えない分子・界面の現象を「見て触れられる」道具に変える。</strong>研究者の直感と再現性を同時に高めるために、次の原則で2つのアプリを作っています。</p>
+    <ul>
+      <li><strong>可視化は思考の道具</strong>：図と数表をワンクリックで。根拠（前処理パラメータ）も必ず残す。</li>
+      <li><strong>再現可能性 × 速度</strong>：同じ操作を同じ結果で再現。テンプレ出力で“待たせない”共有。</li>
+      <li><strong>ローカル優先</strong>：研究データは端末内で完結。オフラインでも動作。</li>
+      <li><strong>研究者主導UI</strong>：最小の操作数、ショートカットとバッチ。現場のフローに合わせる。</li>
+      <li><strong>学びの積層</strong>：毎週「図1・式1・洞察1」。小さな発見を継続的に積む。</li>
+      <li><strong>誠実・敬意・共創</strong>：データの扱いと表現に誠実であること。異なる専門性を尊重すること。</li>
+    </ul>
+
+    <h3>なぜ 2 つ？（Before/After を分ける）</h3>
+    <ul>
+      <li><strong>Complexlab（Before）</strong>：実験の前に、モデルで相互作用の当たりをつける。距離・配位を見て仮説を立てる。</li>
+      <li><strong>Analysiscopilot（After）</strong>：実測後に、データをきれいに整え、図表と一次解釈で共有する。</li>
+    </ul>
+    <p>この往復で、<em>実験設計 → 測定 → 解釈 → 次の仮説</em>のループを速く、確かに回します。</p>
+
+    <details>
+      <summary>背景と個人的な動機（クリックで開く）</summary>
+      <p>研究データがバラバラに散らばり、報告書作成が負担になって本質的な思考に時間が回らない——そんな課題感から出発しました。子どもの頃に憧れた「世界の魔法（=化学反応のメカニズム）」を、仲間と笑顔で探求できる環境を自分で作る。そのための最小の道具がこの2つです。</p>
+    </details>
+
+    <p><em>English tagline:</em> <strong>Translate invisible molecular/interface phenomena into tangible tools.</strong> Built as local-first, reproducible utilities that accelerate the loop of hypothesis → measurement → interpretation.</p>
+  </section>
+
+  <footer>
+    <p>ステータス：<strong>開発中／非製品／個人制作</strong>。仕様は予告なく変更されます。ご利用は自己責任でお願いします。</p>
+  </footer>
 </body>
 </html>
